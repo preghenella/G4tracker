@@ -34,7 +34,7 @@ PrimaryGeneratorAction::GeneratePrimaries(G4Event *event)
 {
   /** generate primaries **/
 
-  mParticleGun->SetParticlePosition(G4ThreeVector(0., 0., -25.*cm));
+  mParticleGun->SetParticlePosition(G4ThreeVector(0., 0., 0.*cm));
   mParticleGun->GeneratePrimaryVertex(event);  
 }
 

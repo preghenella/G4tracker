@@ -7,6 +7,8 @@
 #include "G4PVPlacement.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4SDManager.hh"
+#include "G4GlobalMagFieldMessenger.hh"
+#include "G4AutoDelete.hh"
 
 /******************************************************************************/
 
@@ -81,6 +83,16 @@ DetectorConstruction::ConstructSDandField()
   G4SDManager::GetSDMpointer()->AddNewDetector(sensitive);
   SetSensitiveDetector("Layer_LV", sensitive, true);
 
+  // Create global magnetic field messenger.
+  // Uniform magnetic field is then created automatically if
+  // the field value is not zero.
+  G4ThreeVector fieldValue = G4ThreeVector();
+  auto MagFieldMessenger = new G4GlobalMagFieldMessenger(fieldValue);
+  MagFieldMessenger->SetVerboseLevel(1);
+
+  // Register the field messenger for deleting
+  G4AutoDelete::Register(MagFieldMessenger);
+  
 }
 
 /******************************************************************************/

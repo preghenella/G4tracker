@@ -3,6 +3,7 @@
 /run/verbose 1
 /tracking/verbose 0
 /run/initialize
+/globalField/setValue 0. 0.5 0. tesla
 
 /gun/particle proton
 /gun/momentumAmp 100 MeV

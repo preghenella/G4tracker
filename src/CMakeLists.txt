@@ -8,7 +8,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 find_package(ROOT REQUIRED)
 include(${ROOT_USE_FILE})
 
-find_package(Geant4 REQUIRED)
+find_package(Geant4 REQUIRED ui_all vis_all)
 include(${Geant4_USE_FILE})
 
 set(CMAKE_INSTALL_PREFIX $ENV{HOME})
